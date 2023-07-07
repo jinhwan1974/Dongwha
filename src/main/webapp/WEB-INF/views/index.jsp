@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Title</title>
-    <h2>안녕하세요~</h2>
+    <h2>안녕하세요~ 김진환 입니다.</h2>
 </head>
 <body>
 
