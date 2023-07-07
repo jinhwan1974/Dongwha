@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords"    content="페이지메인키워드">
+    <meta name="description" content="디스크립션">
+    <meta name="author"      content="작성자정보">
+
+    <meta property="og:site_name" content="사이트명으로 웹문서의 제목과는 별개" />
+    <meta property="og:url" content="http://www.aaa.co.kr/"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="웹문서의 제목 현재 페이지(콘텐츠)의 제목"/>
+    <meta property="og:description" content="현재 페이지(콘텐츠)에 대한 설명"/>
+    <meta property="og:image" content="../assets/images/opengraph.png"/>
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link rel="shortcut icon" href="../assets/images/favicon.png" />
+    <link href="../assets/css/default/app.min.css" rel="stylesheet" />
+    <link href="../assets/css//default/theme/blue.min.css" rel="stylesheet" /><!-- 테마컬러 적용 시 추가:aqua,black,blue,green,indigo,lime,orange,pink,purple,red,teal,yellow -->
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <!-- ================== END BASE CSS STYLE ================== -->
+
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <link href="../assets/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" />
+    <!-- ================== END PAGE LEVEL JS ================== -->
+    
+    <!-- ================== BEGIN BASE JS ================== -->
+	<script src="../assets/js/app.min.js"></script>
+	<script src="../assets/js/theme/default.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="../assets/plugins/jstree/dist/jstree.min.js"></script>
+	<script src="../assets/js/demo/ui-tree.demo.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+    
+    <title>Victor Admin</title>
+</head>
+<body>
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade show">
+		<span class="spinner"></span>
+	</div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+        <!-- begin #header -->
+		<div id="header" class="header navbar-default bg-theme">
+			<!-- ※※※ html Include 처리 부분 ※※※ -->
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #sidebar -->
+        <div id="sidebar" class="sidebar">
+            <!-- ※※※ html Include 처리 부분 ※※※ -->
+        </div>
+		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
+		
+		<!-- begin #content -->
+		<div id="content" class="content">
+            <h1 class="page-header">Tree Menu</h1>
+            
+            <!-- begin panel -->
+            <div class="panel panel-inverse" data-sortable-id="tree-view-1">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Default Tree</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="jstree-default">
+                        <ul>
+                            <li data-jstree='{"opened":true}' >
+                                Root node 1
+                                <ul>
+                                    <li data-jstree='{"opened":true, "selected":true }'>Initially Selected</li>
+                                    <li>Folder 1</li>
+                                    <li>Folder 2</li>
+                                    <li>Folder 3</li>
+                                    <li data-jstree='{"opened":true}' >
+                                        Initially open
+                                        <ul>
+                                            <li data-jstree='{"disabled":true}' >Disabled node</li>
+                                            <li>Another node</li>
+                                        </ul>
+                                    </li>
+                                    <li data-jstree='{ "icon" : "fab fa-adobe fa-lg text-danger" }'>custom icon class (fontawesome)</li>
+                                    <li data-jstree='{ "icon" : "fa fa-link fa-lg text-primary" }'><a href="http://www.jstree.com">Clickable link node</a></li>
+                                </ul>
+                            </li>
+                            <li>Root node 2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end panel -->
+
+            <!-- begin panel -->
+            <div class="panel panel-inverse" data-sortable-id="tree-view-2">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Checkable Tree</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="jstree-checkable"></div>
+                </div>
+            </div>
+            <!-- end panel -->
+
+            <!-- begin panel -->
+            <div class="panel panel-inverse" data-sortable-id="tree-view-3">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Contextual Menu with Drag & Drop</h4>
+                </div>
+                <div class="alert alert-info">
+                    <i class="fa fa-info-circle fa-fw"></i> All the opened & selected nodes will be saved in the user's browser.
+                </div>
+                <div class="panel-body">
+                    <div id="jstree-drag-and-drop"></div>
+                </div>
+            </div>
+            <!-- end panel -->
+
+            <!-- begin panel -->
+            <div class="panel panel-inverse" data-sortable-id="tree-view-4">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Ajax Tree with Drag & Drop</h4>
+                </div>
+                <div class="alert alert-info">
+                    <i class="fa fa-info-circle fa-fw"></i> The tree nodes are loaded from date_root.json via ajax.
+                </div>
+                <div class="panel-body">
+                    <div id="jstree-ajax"></div><!--\assets\js\demo\json와 연결-->
+                </div>
+            </div>
+            <!-- end panel -->
+
+            
+		</div>
+		<!-- end #content -->
+
+        <!-- begin #footer -->
+		<div id="footer" class="footer">
+			<!-- ※※※ html Include 처리 부분 ※※※ -->
+		</div>
+		<!-- end #footer -->
+		
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+	
+<script>
+    var FormPlugins = function () {
+        "use strict";
+        return {
+            //main function
+            init: function () {
+                handleDatepicker();
+                handleDateTimePicker();
+            }
+        };
+    }();
+</script>
+
+<!-- html Include 처리 : 실 개발 시 인클루드 재설정 후 제거 -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#header").load("/inc/front_header.html"),
+        $("#sidebar").load("/inc/front_sidebar.html"),
+        $("#footer").load("/inc/front_footer.html")
+    });
+</script>
+
+</body>
+</html>

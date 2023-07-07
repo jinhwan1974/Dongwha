@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords"    content="페이지메인키워드">
+    <meta name="description" content="디스크립션">
+    <meta name="author"      content="작성자정보">
+
+    <meta property="og:site_name" content="사이트명으로 웹문서의 제목과는 별개" />
+    <meta property="og:url" content="http://www.aaa.co.kr/"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="웹문서의 제목 현재 페이지(콘텐츠)의 제목"/>
+    <meta property="og:description" content="현재 페이지(콘텐츠)에 대한 설명"/>
+    <meta property="og:image" content="../assets/images/opengraph.png"/>
+
+    <!-- ================== CSS STYLE ================== -->
+    <link rel="shortcut icon" href="../assets/images/favicon.png" />
+    <link href="../assets/css/default/app.min.css" rel="stylesheet" />
+    <link href="../dist/css/custom.css" rel="stylesheet" /><!-- 항상 CSS 최하단-->
+    <!-- ================ /.CSS STYLE ================== -->
+
+    <!-- ================== 필수 JS ===================== -->
+	<script src="../assets/js/app.min.js"></script>
+	<script src="../assets/js/theme/default.js"></script>
+    <!-- ================ /.필수 JS ===================== -->
+    
+    <title>Victor Admin</title>
+</head>
+
+<body>
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade show">
+        <span class="spinner"></span>
+    </div>
+    <!-- end #page-loader -->
+
+    <!-- begin #page-container -->
+    <div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed">
+        <!-- begin #header -->
+		<div id="header" class="header navbar-default bg-theme">
+			<!-- ※※※ html Include 처리 부분 ※※※ -->
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar">
+			<!-- ※※※ html Include 처리 부분 ※※※ -->
+		</div>
+		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
+
+        <!-- begin #content -->
+        <div id="content" class="content">
+            <!-- begin page-header -->
+            <h1 class="page-header">버튼/label/모달 샘플</h1>
+            <!-- end page-header -->
+
+            
+            <p><a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">※ 버튼 앞의 아이콘 관련 사이트</a>: 사용하고자 하는 아이콘,아이콘 이름을 클릭하여 이동된 페이지의 소스 복사</p>
+
+            <!-- 버튼 사용 영역 : 기본=우측 정렬 / 좌측정렬 변경= class="btn-area text-left" -->
+            <div class="panel panel-inverse">
+                <div class="panel-body">
+                    <div class="btn-area">
+                        <button type="button" class="btn btn-sm bg-theme" data-toggle="modal" data-target="#modal-dialog">모달샘플</button>
+                        <button type="button" class="btn btn-sm bg-theme" data-toggle="modal" data-target="#modal-dialog-lg">모달 lg사이즈</button>
+                        <button type="button" class="btn btn-sm bg-theme" data-toggle="modal" data-target="#modal-dialog-xl">모달 xl사이즈</button>
+                        <button type="button" class="btn btn-sm bg-theme"><i class="fa fa-floppy-o" aria-hidden="true"></i> 저장</button>
+                        <button type="button" class="btn btn-sm bg-theme"><i class="fa fa-pencil" aria-hidden="true"></i> 등록</button>
+                        <button type="button" class="btn btn-sm bg-theme"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 수정</button>
+                        <button type="button" class="btn btn-sm bg-theme"><i class="fa fa-list" aria-hidden="true"></i> 목록</button>
+                        <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> 삭제</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end panel -->
+
+            <!-- 상황에 따른 컬러 지정 버튼 -->
+            <div class="panel panel-inverse">
+                <div class="panel-body">
+                    <h5>[ 테마 컬러를 무시하고 상황에 따라 컬러를 지정해야 하는 경우의 버튼]</h5>
+                    <div class="btn-area text-left">
+
+                        <button type="button" class="btn btn-default">Default</button>
+                        <button type="button" class="btn btn-grey">Grey</button>
+                        <button type="button" class="btn btn-purple">Purple</button>
+                        <button type="button" class="btn btn-indigo">Indigo</button>
+                        <button type="button" class="btn btn-primary">Primary</button>
+                        <button type="button" class="btn btn-info">Info</button>
+                        <button type="button" class="btn btn-yellow">Yellow</button>
+                        <button type="button" class="btn btn-warning">Warning</button>
+                        <button type="button" class="btn btn-pink">Pink</button>
+                        <button type="button" class="btn btn-danger">Danger</button>
+                        <button type="button" class="btn btn-success">Success</button>
+                        <button type="button" class="btn btn-green">Green</button>
+                        <button type="button" class="btn btn-lime">Lime</button>
+                        <button type="button" class="btn btn-inverse">Inverse</button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end panel -->
+
+            <!-- 버튼이 아닌 상황별 표시 labels -->
+            <div class="panel panel-inverse">
+                <div class="panel-body">
+                    <h5>[ 버튼이 아닌 상황에 따라 컬러를 지정해야 하는 경우의 표시 label ]</h5>
+                    <div class="btn-area text-left">
+
+                        <span class="label label-danger">Danger</span>
+                        <span class="label label-warning">Warning</span>
+                        <span class="label label-yellow">Yellow</span>
+                        <span class="label label-lime">Lime</span>
+                        <span class="label label-green">Green</span>
+                        <span class="label label-success">Success</span>
+                        <span class="label label-primary">Primary</span>
+                        <span class="label label-info">Info</span>
+                        <span class="label label-purple">Purple</span>
+                        <span class="label label-indigo">Indigo</span>
+                        <span class="label label-dark">Dark</span>
+                        <span class="label label-pink">Pink</span>
+                        <span class="label label-secondary">Secondary</span>
+                        <span class="label label-default">Default</span>
+                        <span class="label label-light">Light</span>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end panel -->
+
+            <!-- label의 사용 예 -->
+            <div class="panel panel-inverse">
+                <div class="panel-body">
+                    <h5>[ table 에서 상황에 따른 label사용의 예 ]</h5>
+
+                    <div class="table-responsive">
+                        <table class="tbl_hor" cellspacing="0">
+                            <colgroup>
+                                <col width="5%">
+                                <col width="10%">
+                                <col>
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="5%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="checkbox checkbox-css">
+                                            <input type="checkbox" value="" id="table_checkbox_1" />
+                                            <label for="table_checkbox_1">&nbsp;</label>
+                                        </div>
+                                    </th>
+                                    <th scope="col" nowrap>No</th>
+                                    <th scope="col" nowrap>제목</th>
+                                    <th scope="col" nowrap>등록자</th>
+                                    <th scope="col" nowrap>등록일</th>
+                                    <th scope="col" nowrap>상태</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox checkbox-css">
+                                            <input type="checkbox" value="" id="table_checkbox_1" />
+                                            <label for="table_checkbox_1">&nbsp;</label>
+                                        </div>
+                                    </td>
+                                    <td class="num">10</td>
+                                    <td class="subject"><a href="javascript:;" class="text-theme">제목들어가는 곳</a></td>
+                                    <td class="name01">홍길동</td>
+                                    <td class="date">2010-01-01</td>
+                                    <td class="hits"><span class="label label-danger">미확인</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox checkbox-css">
+                                            <input type="checkbox" value="" id="table_checkbox_1" />
+                                            <label for="table_checkbox_1">&nbsp;</label>
+                                        </div>
+                                    </td>
+                                    <td class="num">10</td>
+                                    <td class="subject"><a href="javascript:;" class="text-theme">제목들어가는 곳</a></td>
+                                    <td class="name01">홍길동</td>
+                                    <td class="date">2010-01-01</td>
+                                    <td class="hits"><span class="label label-primary">확인</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="checkbox checkbox-css">
+                                            <input type="checkbox" value="" id="table_checkbox_1" />
+                                            <label for="table_checkbox_1">&nbsp;</label>
+                                        </div>
+                                    </td>
+                                    <td class="num">10</td>
+                                    <td class="subject"><a href="javascript:;" class="text-theme">제목들어가는 곳</a></td>
+                                    <td class="name01">홍길동</td>
+                                    <td class="date">2010-01-01</td>
+                                    <td class="hits"><span class="label label-success">확인중</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end panel -->
+            
+        </div>
+        <!-- end #content -->
+
+        <!-- begin #footer -->
+		<div id="footer" class="footer">
+			<!-- ※※※ html Include 처리 부분 ※※※ -->
+		</div>
+		<!-- end #footer -->
+
+        <!-- begin scroll to top btn -->
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade"
+            data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <!-- end scroll to top btn -->
+    </div>
+    <!-- end page container -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Dialog</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Modal body content here...
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="javascript:;" class="btn btn-primary">Action</a>
+                    <a href="javascript:;" class="btn btn-white" data-dismiss="modal">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal lg-->
+    <div class="modal fade" id="modal-dialog-lg">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Dialog</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Modal body content here...
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="javascript:;" class="btn btn-primary">Action</a>
+                    <a href="javascript:;" class="btn btn-white" data-dismiss="modal">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal lg-->
+    <div class="modal fade" id="modal-dialog-xl">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Dialog</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Modal body content here...
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="javascript:;" class="btn btn-primary">Action</a>
+                    <a href="javascript:;" class="btn btn-white" data-dismiss="modal">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- html Include 처리 : 실 개발 시 인클루드 재설정 후 제거 -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#header").load("/inc/front_header.html"),
+        $("#sidebar").load("/inc/front_sidebar.html"),
+        $("#footer").load("/inc/front_footer.html")
+    });
+</script>
+
+</body>
+</html>
