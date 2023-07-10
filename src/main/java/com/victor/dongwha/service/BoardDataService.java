@@ -12,7 +12,9 @@ public class BoardDataService {
 
     @Autowired
     BoardDataMapper boardDataMapper;
-    public List<BoardDataVO> getBoardList() throws Exception {
+
+		public List<BoardDataVO> getBoardList() throws Exception {
         return boardDataMapper.getBoardData();
     }
+
 }
