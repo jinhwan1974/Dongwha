@@ -12,20 +12,20 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="웹문서의 제목 현재 페이지(콘텐츠)의 제목"/>
     <meta property="og:description" content="현재 페이지(콘텐츠)에 대한 설명"/>
-    <meta property="og:image" content="../assets/images/opengraph.png"/>
+    <meta property="og:image" content="<%=request.getContextPath()%>/assets/images/opengraph.png"/>
 
     <!-- ================== CSS STYLE ================== -->
-    <link rel="shortcut icon" href="../assets/images/favicon.png" />
-    <link href="../assets/css/default/app.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/images/favicon.png" />
+    <link href="<%=request.getContextPath()%>/assets/css/default/app.min.css" rel="stylesheet" />
     <link href="../dist/css/custom.css" rel="stylesheet" /><!-- 항상 CSS 최하단-->
     <!-- ================ /.CSS STYLE ================== -->
     
     <!-- ================== 필수 JS ===================== -->
-	<script src="../assets/js/app.min.js"></script>
-	<script src="../assets/js/theme/default.js"></script>
+	<script src="<%=request.getContextPath()%>/assets/js/app.min.js"></script>
+	<script src="<%=request.getContextPath()%>/assets/js/theme/default.js"></script>
     <!-- ================ /.필수 JS ===================== -->
 
-    <title>Victor Admin</title>
+    <title><%=HOME_TITLE%></title>
 </head>
 <body class="pace-top">
 	<!-- begin #page-loader -->
@@ -36,7 +36,7 @@
 	
 	<!-- begin login-cover -->
 	<div class="login-cover">
-		<div class="login-cover-image" style="background-image: url(../assets/images/login-bg.jpg)" data-id="login-cover-image"></div>
+		<div class="login-cover-image" style="background-image: url(<%=request.getContextPath()%>/assets/images/login-bg.jpg)" data-id="login-cover-image"></div>
 		<div class="login-cover-bg"></div>
 	</div>
 	<!-- end login-cover -->

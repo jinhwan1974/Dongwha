@@ -13,16 +13,16 @@
 							 reg_date as regDate
         FROM DW_BOARD -->
 
-				SELECT 
+			SELECT 
 				A.seq as boardId,
 				company,
 				B.org_name as orgName, 
 				title,
 				reg_id as regId,
 				reg_date as regDate
-				FROM DW_BOARD A
-				INNER JOIN board_files B
-				ON A.file_id = B.seq
+			FROM DW_BOARD A
+			INNER JOIN board_files B
+			ON A.file_id = B.seq
     </select>
 
 		<!-- <select id="getBoardData" resultType="BoardDataVO">

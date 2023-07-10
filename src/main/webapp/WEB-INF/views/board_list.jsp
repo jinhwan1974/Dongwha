@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@include file="/inc/common.jsp"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -16,38 +17,38 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="웹문서의 제목 현재 페이지(콘텐츠)의 제목"/>
     <meta property="og:description" content="현재 페이지(콘텐츠)에 대한 설명"/>
-    <meta property="og:image" content="../assets/images/opengraph.png"/>
+    <meta property="og:image" content="<%=request.getContextPath()%>/assets/images/opengraph.png"/>
 
     <!-- ================== CSS STYLE ================== -->
-    <link rel="shortcut icon" href="../assets/images/favicon.png" />
-    <link href="../assets/css/default/app.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/images/favicon.png" />
+    <link href="<%=request.getContextPath()%>/assets/css/default/app.min.css" rel="stylesheet" />
     <!-- 추가 CSS -->
     <!-- bootstrap-datepicker -->
-    <link href="../assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
-    <link href="../assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" />
+    <link href="<%=request.getContextPath()%>/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="<%=request.getContextPath()%>/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" />
     <!-- datatables -->
-    <link href="../assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="<%=request.getContextPath()%>/assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <!-- /.추가 CSS -->
     <link href="../dist/css/custom.css" rel="stylesheet" /><!-- 항상 CSS 최하단-->
     <!-- ================ /.CSS STYLE ================== -->
 
     <!-- ================== 필수 JS ===================== -->
-	<script src="../assets/js/app.min.js"></script>
-	<script src="../assets/js/theme/default.js"></script>
+	<script src="<%=request.getContextPath()%>/assets/js/app.min.js"></script>
+	<script src="<%=request.getContextPath()%>/assets/js/theme/default.js"></script>
     <!-- ================== 필수 JS ===================== -->
 
     <!-- ================== 페이지 추가 JS =============== -->
     <!-- bootstrap-datepicker -->
-    <script src="../assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
-    <script src="../assets/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ko.min.js"></script>
-    <script src="../assets/js/demo/form-plugins.demo.js"></script>
+    <script src="<%=request.getContextPath()%>/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+    <script src="<%=request.getContextPath()%>/assets/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ko.min.js"></script>
+    <script src="<%=request.getContextPath()%>/assets/js/demo/form-plugins.demo.js"></script>
     <!-- datatables -->
-	<script src="../assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
-	<script src="../assets/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-	<script src="../assets/js/demo/table-manage-default.demo.js"></script>
+	<script src="<%=request.getContextPath()%>/assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="<%=request.getContextPath()%>/assets/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="<%=request.getContextPath()%>/assets/js/demo/table-manage-default.demo.js"></script>
     <!-- ================ /.페이지 추가 JS =============== -->
 
-    <title>Victor Admin</title>
+    <title><%=HOME_TITLE%></title>
 </head>
 
 <body>
@@ -61,13 +62,13 @@
     <div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed">
         <!-- begin #header -->
 		<div id="header" class="header navbar-default bg-theme">
-			<!-- ※※※ html Include 처리 부분 ※※※ -->
+			<%@include file="/inc/header.jsp"%>
 		</div>
 		<!-- end #header -->
 		
 		<!-- begin #sidebar -->
 		<div id="sidebar" class="sidebar">
-			<!-- ※※※ html Include 처리 부분 ※※※ -->
+			<%@include file="/inc/sidebar.jsp"%>
 		</div>
 		<div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
@@ -181,14 +182,13 @@
         <!-- end #content -->
 
         <!-- begin #footer -->
-		<div id="footer" class="footer">
-			<!-- ※※※ html Include 처리 부분 ※※※ -->
-		</div>
-		<!-- end #footer -->
+				<div id="footer" class="footer">
+					<%@include file="/inc/footer.jsp"%>
+				</div>
+				<!-- end #footer -->
 
         <!-- begin scroll to top btn -->
-        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade"
-            data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
         <!-- end scroll to top btn -->
     </div>
     <!-- end page container -->
@@ -227,18 +227,6 @@
         } );
     } );
 
-</script>
-
-<!-- html Include 처리 : 실 개발 시 인클루드 재설정 후 제거 -->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#header").load("/inc/front_header.html"),
-        $("#sidebar").load("/inc/front_sidebar.html"),
-        $("#footer").load("/inc/front_footer.html")
-    });
-		$('#insertBtn').click(function() {
-			$(location).attr('href','board_write.html');
-		});
 </script>
 
 </body>

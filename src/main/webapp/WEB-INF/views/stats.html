@@ -12,27 +12,27 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="웹문서의 제목 현재 페이지(콘텐츠)의 제목"/>
     <meta property="og:description" content="현재 페이지(콘텐츠)에 대한 설명"/>
-    <meta property="og:image" content="../assets/images/opengraph.png"/>
+    <meta property="og:image" content="<%=request.getContextPath()%>/assets/images/opengraph.png"/>
 
     <!-- ================== CSS STYLE ================== -->
-    <link rel="shortcut icon" href="../assets/images/favicon.png" />
-    <link href="../assets/css/default/app.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/images/favicon.png" />
+    <link href="<%=request.getContextPath()%>/assets/css/default/app.min.css" rel="stylesheet" />
     <!-- 추가 CSS -->
-    <link href="../assets/plugins/highcharts/css/highcharts.css" rel="stylesheet" /><!-- 추가 css: highcharts -->
+    <link href="<%=request.getContextPath()%>/assets/plugins/highcharts/css/highcharts.css" rel="stylesheet" /><!-- 추가 css: highcharts -->
     <!-- /.추가 CSS -->
     <link href="../dist/css/custom.css" rel="stylesheet" /><!-- 항상 CSS 최하단-->
     <!-- ================ /.CSS STYLE ================== -->
 
     <!-- ================== 필수 JS ===================== -->
-	<script src="../assets/js/app.min.js"></script>
-	<script src="../assets/js/theme/default.js"></script>
+	<script src="<%=request.getContextPath()%>/assets/js/app.min.js"></script>
+	<script src="<%=request.getContextPath()%>/assets/js/theme/default.js"></script>
     <!-- ================ /.필수 JS ===================== -->
 
     <!-- ================== 페이지 추가 JS : highcharts ================== -->
-    <script src="../assets/plugins/highcharts/highcharts.js"></script>
+    <script src="<%=request.getContextPath()%>/assets/plugins/highcharts/highcharts.js"></script>
     <!-- ================ /.페이지 추가 JS =============== -->
     
-    <title>Victor Admin</title>
+    <title><%=HOME_TITLE%></title>
 </head>
 
 <body>
@@ -46,13 +46,13 @@
     <div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed">
         <!-- begin #header -->
 		<div id="header" class="header navbar-default bg-theme">
-			<!-- ※※※ html Include 처리 부분 ※※※ -->
+			<%@include file="/inc/header.jsp"%>
 		</div>
 		<!-- end #header -->
 		
 		<!-- begin #sidebar -->
 		<div id="sidebar" class="sidebar">
-			<!-- ※※※ html Include 처리 부분 ※※※ -->
+			<%@include file="/inc/sidebar.jsp"%>
 		</div>
 		<div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
@@ -584,7 +584,7 @@
 
         <!-- begin #footer -->
 		<div id="footer" class="footer">
-			<!-- ※※※ html Include 처리 부분 ※※※ -->
+			<%@include file="/inc/footer.jsp"%>
 		</div>
 		<!-- end #footer -->
 
@@ -595,14 +595,7 @@
     </div>
     <!-- end page container -->
 
-<!-- html Include 처리 : 실 개발 시 인클루드 재설정 후 제거 -->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#header").load("/inc/front_header.html"),
-        $("#sidebar").load("/inc/front_sidebar.html"),
-        $("#footer").load("/inc/front_footer.html")
-    });
-</script>
+
 
 </body>
 </html>
