@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -155,166 +159,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="odd gradeX">
-                                    <td width="1%" class="f-s-600 text-inverse">1</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="even gradeC">
-                                    <td class="f-s-600 text-inverse">2</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="odd gradeA">
-                                    <td class="f-s-600 text-inverse">3</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="even gradeA">
-                                    <td class="f-s-600 text-inverse">4</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="odd gradeA">
-                                    <td class="f-s-600 text-inverse">5</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="even gradeA">
-                                    <td class="f-s-600 text-inverse">6</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">7</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">8</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">9</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">10</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">11</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">12</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">13</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">14</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">15</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">16</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">17</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">18</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">19</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td class="f-s-600 text-inverse">20</td>
-                                    <td>제조사</td>
-                                    <td><a href="board_view.html">제목</a></td>
-                                    <td>첨부파일</td>
-                                    <td>담당자</td>
-                                    <td>2023.01.01</td>
-                                </tr>
+															<c:forEach items="${boardList}" var="list">
+																<tr>
+																		<td><c:out value="${list.boardId}"/></td>
+																		<td><c:out value="${list.company}"/></td>
+																		<td><c:out value="${list.title}"/></td>
+																		<td><c:out value="${list.orgName}"/></td>
+																		<td><c:out value="${list.regId}"/></td>
+																		<!-- <td><c:out value="${list.regDate}"/></td> -->
+																		<td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regDate}"/></td>
+																</tr>
+															</c:forEach>
                             </tbody>
                         </table>
                     </div>

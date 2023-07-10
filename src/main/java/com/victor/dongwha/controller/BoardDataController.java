@@ -15,6 +15,6 @@ public class BoardDataController {
     public String boardList(ModelMap model) throws Exception {
         model.addAttribute("boardList", boardDataService.getBoardList());
 
-        return "board/boardList";
+        return "board_list";
     }
 }

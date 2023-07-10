@@ -5,10 +5,30 @@
 
 <mapper namespace="com.victor.dongwha.mapper.BoardDataMapper">
     <select id="getBoardData" resultType="BoardDataVO">
-        SELECT board_id as boardId,
+        <!-- SELECT seq as boardId,
+               company,
                title,
-               content,
-               reg_id as regId
-        FROM board_data
+               file_id as fileId,
+               reg_id as regId,
+							 reg_date as regDate
+        FROM DW_BOARD -->
+
+				SELECT 
+				A.seq as boardId,
+				company,
+				B.org_name as orgName, 
+				title,
+				reg_id as regId,
+				reg_date as regDate
+				FROM DW_BOARD A
+				INNER JOIN board_files B
+				ON A.file_id = B.seq
     </select>
+
+		<!-- <select id="getBoardData" resultType="BoardDataVO">
+				SELECT *
+				FROM DW_BOARD
+				INNER JOIN board_files
+				ON DW_BOARD.file_id = board_files.seq
+    </select> -->
 </mapper>

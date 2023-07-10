@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -136,13 +138,13 @@
 
 	<!-- smarteditor2 -->
 	<script type="text/javascript">
-		var oEditors = [];
-		nhn.husky.EZCreator.createInIFrame({
-			oAppRef: oEditors,
-			elPlaceHolder: "CONTENT",
-			sSkinURI: "../assets/plugins/smarteditor2-2.10.0/SmartEditor2Skin.html",
-			fCreator: "createSEditor2"
-		});
+		// var oEditors = [];
+		// nhn.husky.EZCreator.createInIFrame({
+		// 	oAppRef: oEditors,
+		// 	elPlaceHolder: "CONTENT",
+		// 	sSkinURI: "../assets/plugins/smarteditor2-2.10.0/SmartEditor2Skin.html",
+		// 	fCreator: "createSEditor2"
+		// });
 	</script>
 
 	<!-- html Include 처리 : 실 개발 시 인클루드 재설정 후 제거 -->
