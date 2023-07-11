@@ -29,7 +29,7 @@
     <!-- datatables -->
     <link href="<%=request.getContextPath()%>/assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <!-- /.추가 CSS -->
-    <link href="../dist/css/custom.css" rel="stylesheet" /><!-- 항상 CSS 최하단-->
+    <link href="<%=request.getContextPath()%>/dist/css/custom.css" rel="stylesheet" /><!-- 항상 CSS 최하단-->
     <!-- ================ /.CSS STYLE ================== -->
 
     <!-- ================== 필수 JS ===================== -->
@@ -79,9 +79,7 @@
             <h1 class="page-header">자료실-목록</h1>
             <!-- end page-header -->
 
-            
-            <p><a href="https://seantheme.com/color-admin/admin/html/table_manage_fixed_columns.html" target="_blank">※ 그밖의 다양한 datatable 샘플</a></p>
-    
+                
             <!-- 테이블 상단 검색 영역 -->
             <div class="panel panel-inverse search">
                 <div class="panel-heading">
@@ -154,6 +152,7 @@
                                     <th width="1%">No</th>
                                     <th class="text-nowrap">제조사</th>
                                     <th class="text-nowrap">제목</th>
+                                    <th class="text-nowrap">내용</th>
                                     <th class="text-nowrap">첨부파일</th>
                                     <th class="text-nowrap">담당자</th>
                                     <th class="text-nowrap">등록일</th>
@@ -165,6 +164,7 @@
 																		<td><c:out value="${list.boardId}"/></td>
 																		<td><c:out value="${list.company}"/></td>
 																		<td><c:out value="${list.title}"/></td>
+																		<td><c:out value="${list.content}"/></td>
 																		<td><c:out value="${list.orgName}"/></td>
 																		<td><c:out value="${list.regId}"/></td>
 																		<!-- <td><c:out value="${list.regDate}"/></td> -->
@@ -227,6 +227,21 @@
         } );
     } );
 
+		$('#insertBtn').click(function() {
+			$(location).attr('href', 'boardWrite.do');
+		} );
+
+		// 게시판 등록 성공 체크
+		let result = '<c:out value="${result}"/>';
+		checkAlert(result);
+    function checkAlert(result){
+        if(result === ''){
+            return;
+        }
+        if(result === "addBoardData success"){
+            alert("등록이 완료되었습니다.");
+        }
+    }
 </script>
 
 </body>

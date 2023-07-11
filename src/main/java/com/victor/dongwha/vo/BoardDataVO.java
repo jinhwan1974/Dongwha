@@ -10,11 +10,14 @@ import lombok.ToString;
 @Setter
 @ToString
 public class BoardDataVO {
+
+	/* 게시판 번호 */
 	int boardId;
 	String company;
 	String title;
 	int fileId;
 	String regId;
 	Date regDate;
+	String content;
 	String orgName;
 }

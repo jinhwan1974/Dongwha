@@ -16,19 +16,19 @@
 			SELECT 
 				A.seq as boardId,
 				company,
-				B.org_name as orgName, 
 				title,
 				reg_id as regId,
-				reg_date as regDate
+				reg_date as regDate,
+				content,
+				B.org_name as orgName
 			FROM DW_BOARD A
-			INNER JOIN board_files B
-			ON A.file_id = B.seq
+			LEFT OUTER JOIN board_files B
+				ON A.file_id = B.seq
+
     </select>
 
-		<!-- <select id="getBoardData" resultType="BoardDataVO">
-				SELECT *
-				FROM DW_BOARD
-				INNER JOIN board_files
-				ON DW_BOARD.file_id = board_files.seq
-    </select> -->
+		<insert id="addBoardData">
+				insert into DW_BOARD(company, title, reg_id, reg_date, content) 
+				values (#{company}, #{title}, #{regId}, NOW(), #{content});
+    </insert>
 </mapper>

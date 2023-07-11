@@ -11,4 +11,7 @@ import java.util.List;
 public interface BoardDataMapper {
 		/* 목록 */
     public List<BoardDataVO> getBoardData() throws Exception;
+
+		/* 등록 */
+		public void addBoardData(BoardDataVO board);
 }

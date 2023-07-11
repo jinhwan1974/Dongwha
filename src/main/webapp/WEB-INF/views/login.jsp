@@ -17,7 +17,7 @@
     <!-- ================== CSS STYLE ================== -->
     <link rel="shortcut icon" href="<%=request.getContextPath()%>/assets/images/favicon.png" />
     <link href="<%=request.getContextPath()%>/assets/css/default/app.min.css" rel="stylesheet" />
-    <link href="../dist/css/custom.css" rel="stylesheet" /><!-- 항상 CSS 최하단-->
+    <link href="<%=request.getContextPath()%>/dist/css/custom.css" rel="stylesheet" /><!-- 항상 CSS 최하단-->
     <!-- ================ /.CSS STYLE ================== -->
     
     <!-- ================== 필수 JS ===================== -->
