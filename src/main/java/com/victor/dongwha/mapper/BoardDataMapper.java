@@ -14,4 +14,7 @@ public interface BoardDataMapper {
 
 		/* 등록 */
 		public void addBoardData(BoardDataVO board);
+
+		/* 조회 */
+		public BoardDataVO inquiryBoardData(int boardId);
 }

@@ -71,7 +71,6 @@
 			<!-- View 테이블 -->
 			<div class="panel panel-inverse">
 				<div class="panel-body">
-					<form id="actionForm" action="/boardWrite.do" method="post">
 					<div class="table-responsive">
 						<table class="tbl_ver" cellspacing="0">
 							<colgroup>
@@ -80,12 +79,12 @@
 							</colgroup>
 							<tbody>
 								<tr>
-									<tr>
-										<th>제조사</th>
-										<td><input id="company" name="company" class="form-control form-control-sm" type="text" /></td>
-									</tr>
+									<th>제조사</th>
+									<td><input id="company" name="company" class="form-control form-control-sm" type="text" value='<c:out value="${pageInfo.company}">' /></td>
+								</tr>
+								<tr>
 									<th>제목</th>
-									<td><input id="title" name="title" class="form-control form-control-sm" type="text" /></td>
+									<td><input id="title" name="title" class="form-control form-control-sm" type="text" value='<c:out value="${pageInfo.title}">' /></td>
 								</tr>
 								<tr>
 									<th>작성자</th>
@@ -98,7 +97,7 @@
 									<td>
 										<div class="tbl-cnt">
 											<!--textarea class="form-control" rows="3"></textarea-->
-											<textarea id="content" name="content" class="form-control" rows="8"></textarea>
+											<textarea id="content" name="content" class="form-control" rows="8" value='<c:out value="${pageInfo.content}">'></textarea>
 										</div>
 									</td>
 								</tr>
@@ -111,12 +110,15 @@
 							</tbody>
 						</table>
 					</div>
-					</form>
+
 					<div class="btn-area">
-						<button type="button" id="insertBtn" class="btn btn-sm bg-theme"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>등록</button>
+						<button type="submit" id="modifyBtn" class="btn btn-sm bg-theme" href="/boardView?boardId='${pageInfo.boardId}'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>수정</button>
 						<button type="button" id="listBtn" class="btn btn-sm bg-theme"><i class="fa fa-list" aria-hidden="true"></i>목록</button>
 						<button type="button" id="delBtn" class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> 삭제</button>
 					</div>
+					<form id="infoForm" action="/boardView" method="get">
+						<input type="hidden" id="boardId" name="boardId" value='<c:out value="${pageInfo.boardId}"/>'>
+					</form>
 				</div>
 			</div>
 			<!-- end panel -->
@@ -139,46 +141,18 @@
 
 	<!-- smarteditor2 -->
 	<script type="text/javascript">
-		// var oEditors = [];
-		// nhn.husky.EZCreator.createInIFrame({
-		// 	oAppRef: oEditors,
-		// 	elPlaceHolder: "CONTENT",
-		// 	sSkinURI: "<%=request.getContextPath()%>/assets/plugins/smarteditor2-2.10.0/SmartEditor2Skin.html",
-		// 	fCreator: "createSEditor2"
-		// });
-
-		$('#listBtn').click(function () {
-			$(location).attr('href', 'boardList.do');
-		});		
-		$('#insertBtn').click(function () {
-			console.log($('input').val());
-			if ($('#company').val()== '') {
-				alert("제조사입력");
-				return false;
-			}
-			if ($('#title').val() == '') {
-				alert("제목입력");
-				return false;
-			}
-			if ($('#regId').val()  == '') {
-				alert("작성자입력");
-				return false;
-			}
-			if ($('#content').val() == '') {
-				alert("내용입력");
-				return false;
-			}
-			if ($('#orgName').val() == '') {
-				alert("파일첨부");
-				return false;
-			}
-			$('#actionForm').attr('action','boardWrite2.do');
-			// actionForm param 로그로 찍어보기
-			console.log($("#actionForm").serializeArray());
-			$('#actionForm').submit();
-		});
-
+	let form = $("#infoForm");
 		
+		$("#listBtn").on("click", function(e){
+			form.find("#boardId").remove();
+			form.attr("action", "/boardList.do");
+			form.submit();
+		});
+		
+		$("#modifyBtn").on("click", function(e){
+			form.attr("action", "/boardView");
+			form.submit();
+	});	
 
 </script>
 

@@ -12,7 +12,7 @@ import lombok.ToString;
 public class BoardDataVO {
 
 	/* 게시판 번호 */
-	int boardId;
+	Integer boardId;
 	String company;
 	String title;
 	int fileId;

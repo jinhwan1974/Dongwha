@@ -153,7 +153,7 @@
                                     <th class="text-nowrap">제조사</th>
                                     <th class="text-nowrap">제목</th>
                                     <th class="text-nowrap">내용</th>
-                                    <th class="text-nowrap">첨부파일</th>
+                                    <!-- <th class="text-nowrap">첨부파일</th> -->
                                     <th class="text-nowrap">담당자</th>
                                     <th class="text-nowrap">등록일</th>
                                 </tr>
@@ -163,9 +163,13 @@
 																<tr>
 																		<td><c:out value="${list.boardId}"/></td>
 																		<td><c:out value="${list.company}"/></td>
-																		<td><c:out value="${list.title}"/></td>
+																		<td>
+																			<a class="move" href='/boardView?boardId=<c:out value="${list.boardId}"/>'>
+																				<c:out value="${list.title}"/>
+																			</a>
+																		</td>
 																		<td><c:out value="${list.content}"/></td>
-																		<td><c:out value="${list.orgName}"/></td>
+																		<!-- <td><c:out value="${list.orgName}"/></td> -->
 																		<td><c:out value="${list.regId}"/></td>
 																		<!-- <td><c:out value="${list.regDate}"/></td> -->
 																		<td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regDate}"/></td>
@@ -173,6 +177,10 @@
 															</c:forEach>
                             </tbody>
                         </table>
+
+												<form id="moveForm" method="get">    
+												</form>
+
                     </div>
                 </div>
             </div>
@@ -242,6 +250,14 @@
             alert("등록이 완료되었습니다.");
         }
     }
+
+		let moveForm = $("#moveForm"); 
+    $(".move").on("click", function(e){
+        e.preventDefault();        
+        moveForm.append("<input type='number' name='boardId' value='"+ $(this).attr("href")+ "'>");
+        moveForm.attr("action", "/boardView");
+        moveForm.submit();
+    });
 </script>
 
 </body>
