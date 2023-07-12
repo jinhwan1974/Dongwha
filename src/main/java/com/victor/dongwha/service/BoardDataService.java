@@ -12,7 +12,15 @@ public class BoardDataService {
 
     @Autowired
     BoardDataMapper boardDataMapper;
-    public List<BoardDataVO> getBoardList() throws Exception {
+
+		/* 목록 */
+		public List<BoardDataVO> getBoardList() throws Exception {
         return boardDataMapper.getBoardData();
     }
+
+		/* 등록 */
+    public void addBoardData(BoardDataVO board) {        
+        boardDataMapper.addBoardData(board);        
+    }
+
 }

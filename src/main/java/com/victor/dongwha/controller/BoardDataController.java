@@ -1,20 +1,60 @@
 package com.victor.dongwha.controller;
 
+import com.victor.dongwha.common.FileUtils;
 import com.victor.dongwha.service.BoardDataService;
+import com.victor.dongwha.service.FileService;
+import com.victor.dongwha.vo.BoardDataVO;
+
+import com.victor.dongwha.vo.FileVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@Slf4j
 public class BoardDataController {
-    @Autowired
-    BoardDataService boardDataService;
+	@Autowired
+	BoardDataService boardDataService;
 
-    @GetMapping("/boardList.do")
-    public String boardList(ModelMap model) throws Exception {
-        model.addAttribute("boardList", boardDataService.getBoardList());
+	@Autowired
+	FileUtils fileUtils;
 
-        return "board/boardList";
-    }
+	@Autowired
+	FileService fileService;
+
+	/* 목록 */
+	@GetMapping("/boardList.do")
+	public String boardList(ModelMap model) throws Exception {
+			model.addAttribute("boardList", boardDataService.getBoardList());
+
+			return "board_list";
+	}
+
+	/* 등록 페이지 호출 */
+	@GetMapping("/boardWrite.do")
+  public String boardWrite() {
+			return "board_write";
+	}
+
+	/* 등록 */ 
+	@PostMapping("/addBoardData.do")
+	public String addBoardData(BoardDataVO board, RedirectAttributes rttr) {
+		// 값찍어보기
+		System.out.println(board);
+
+		// 파일 업로드
+		// 파일 정보 DB INSERT
+		// 파일 PK 가져오기 (게시글에 파일PK 저장)
+		boardDataService.addBoardData(board); // 게시글 저장
+
+		// 등록 성공여부 확인
+		rttr.addFlashAttribute("result", "addBoardData success");
+		return "redirect:boardList.do";
+		
+	}
+
 }

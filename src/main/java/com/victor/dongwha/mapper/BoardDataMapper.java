@@ -9,5 +9,9 @@ import java.util.List;
 @Repository
 @Mapper
 public interface BoardDataMapper {
-    public List<BoardDataVO> getBoardData() throws Exception;
+		/* 목록 */
+    List<BoardDataVO> getBoardData() throws Exception;
+
+		/* 등록 */
+	void addBoardData(BoardDataVO board);
 }
