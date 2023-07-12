@@ -28,7 +28,7 @@
     </select>
 
 		<insert id="addBoardData">
-				insert into DW_BOARD(company, title, reg_id, reg_date, content) 
-				values (#{company}, #{title}, #{regId}, NOW(), #{content});
+				insert into DW_BOARD(company, title, file_id, reg_id, reg_date, content)
+				values (#{company}, #{title}, #{fileId}, #{regId}, NOW(), #{content});
     </insert>
 </mapper>
