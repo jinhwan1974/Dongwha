@@ -20,7 +20,6 @@ public class FileUtils {
     /**
      * 단일 파일 업로드
      * @author juyeon
-     * @version 1.0.0
      * @date 2023-07-11
      **/
     public FileVO uploadFile(MultipartFile multipartFile) {
@@ -30,7 +29,7 @@ public class FileUtils {
         }
 
         String saveName = generateSaveFilename(multipartFile.getOriginalFilename());
-        String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd")).toString();
+        String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyMMdd"));
         String uploadPath = getUploadPath(today) + File.separator + saveName;
         File uploadFile = new File(uploadPath);
 
@@ -82,7 +81,7 @@ public class FileUtils {
      **/
     private String makeDirectories(final String path) {
         File dir = new File(path);
-        if (dir.exists() == false) {
+        if (!dir.exists()) {
             dir.mkdirs();
         }
         return dir.getPath();
