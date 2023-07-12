@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 @Controller
 @Slf4j
 public class BoardDataController {
 
-	private static final Logger log = LoggerFactory.getLogger(BoardDataController.class);
-	
 	@Autowired
 	BoardDataService boardDataService;
 
@@ -41,8 +42,12 @@ public class BoardDataController {
 
 	/* 등록 페이지 호출 */
 	@GetMapping("/boardWrite.do")
-  public String boardWrite() {
-			return "board_write";
+	public String boardWrite() {
+		Path uploadPath = Paths.get("D:", "develop", "upload-files");
+		log.info("uploadPath PathType ::: {}", uploadPath);
+		String uploadPath2 = Paths.get("D:", "develop", "upload-files").toString();
+		log.info("uploadPath StringType ::: {}", uploadPath2);
+		return "board_write";
 	}
 
 	/* 등록 */ 
@@ -51,15 +56,14 @@ public class BoardDataController {
 		// 값찍어보기
 		System.out.println(board);
 
-		// 파일 업로드
-		// 파일 정보 DB INSERT
-		// 파일 PK 가져오기 (게시글에 파일PK 저장)
+		FileVO fileVO = fileUtils.uploadFile(board.getBoardFile()); // 파일 업로드
+		fileService.saveFile(fileVO); // 파일 정보 DB INSERT
+		board.setFileId(fileVO.getSeq()); // 파일 PK 가져오기 (게시글 VO에 파일 seq를 세팅)
 		boardDataService.addBoardData(board); // 게시글 저장
 
 		// 등록 성공여부 확인
 		rttr.addFlashAttribute("result", "addBoardData success");
 		return "redirect:boardList.do";
-		
 	}
 
 	/* 조회 */
@@ -72,6 +76,7 @@ public class BoardDataController {
 
 	@GetMapping("/boardView")
 	public void inquiryBoardData(int boardId, ModelMap model) throws Exception {
+
 
 		model.addAttribute("pageInfo", boardDataService.inquiryBoardData(boardId));
 	}
