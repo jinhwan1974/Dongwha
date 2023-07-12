@@ -36,19 +36,19 @@ public class BoardDataController {
 
 	/* 등록 페이지 호출 */
 	@GetMapping("/boardWrite.do")
-  public String boardWrite() throws Exception {
+  public String boardWrite() {
 			return "board_write";
 	}
 
 	/* 등록 */ 
-	@PostMapping("/boardWrite2.do")
+	@PostMapping("/addBoardData.do")
 	public String addBoardData(BoardDataVO board, RedirectAttributes rttr) {
 		// 값찍어보기
 		System.out.println(board);
-        
-		FileVO fileVO = fileUtils.uploadFile(board.getBoardFile()); // 파일 업로드
-		Long fileId = fileService.saveFile(fileVO); // 파일 정보 DB INSERT
-		board.setFileId(fileId); // 파일 PK 가져오기 (게시글에 파일PK 저장)
+
+		// 파일 업로드
+		// 파일 정보 DB INSERT
+		// 파일 PK 가져오기 (게시글에 파일PK 저장)
 		boardDataService.addBoardData(board); // 게시글 저장
 
 		// 등록 성공여부 확인

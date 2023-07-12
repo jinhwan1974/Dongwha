@@ -172,7 +172,7 @@
 				alert("파일첨부");
 				return false;
 			}
-			$('#actionForm').attr('action','boardWrite2.do');
+			$('#actionForm').attr('action','addboardData.do');
 			// actionForm param 로그로 찍어보기
 			console.log($("#actionForm").serializeArray());
 			$('#actionForm').submit();
