@@ -5,6 +5,7 @@ import java.sql.Date;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -12,12 +13,13 @@ import lombok.ToString;
 public class BoardDataVO {
 
 	/* 게시판 번호 */
-	Integer boardId;
-	String company;
-	String title;
-	int fileId;
-	String regId;
-	Date regDate;
-	String content;
-	String orgName;
+	private int boardId; // 게시판 번호 (PK)
+	private String company; // 회사명
+	private String title; // 게시판 제목
+	private Long fileId; // 파일 번호 (PK)
+	private String regId; // 등록 아이디
+	private Date regDate; // 등록 날짜
+	private String content; // 내용
+	private String orgName; // 원본 파일명
+	private MultipartFile boardFile; // 첨부파일
 }
