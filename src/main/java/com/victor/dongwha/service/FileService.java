@@ -12,8 +12,8 @@ public class FileService {
         this.fileMapper = fileMapper;
     }
 
-    public Long saveFile(FileVO fileVO) {
+		//파일등록
+    public void saveFile(FileVO fileVO) {
         fileMapper.saveFile(fileVO);
-        return fileVO.getSeq();
     }
 }

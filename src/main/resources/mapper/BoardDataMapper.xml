@@ -12,7 +12,7 @@
         FROM DW_BOARD -->
 
 			SELECT 
-				A.board_id as boardId,
+				A.seq as boardId,
 				company,
 				title,
 				reg_id as regId,
@@ -32,14 +32,17 @@
 
 	<!-- 게시판 조회 -->
     <select id="inquiryBoardData" resultType="BoardDataVO">
-			SELECT 
-				board_id as boardId,
+			SELECT 			
+			A.seq as boardId,
 				company,
 				title,
 				reg_id as regId,
 				reg_date as regDate,
-				content
-			FROM DW_BOARD
-			WHERE board_id = #{boardId}
+				content,
+				B.org_name as orgName
+			FROM DW_BOARD A
+			LEFT OUTER JOIN board_files B
+				ON A.file_id = B.seq
+			WHERE A.seq = #{boardId}
     </select>
 </mapper>

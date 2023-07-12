@@ -18,8 +18,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Slf4j
 public class BoardDataController {
 
-	private static final Logger log = LoggerFactory.getLogger(BoardDataController.class);
-	
 	@Autowired
 	BoardDataService boardDataService;
 
@@ -52,8 +50,14 @@ public class BoardDataController {
 		System.out.println(board);
 
 		// 파일 업로드
+		FileVO fileVO = fileUtils.uploadFile(board.getBoardFile());
+
 		// 파일 정보 DB INSERT
+		fileService.saveFile(fileVO);
+
 		// 파일 PK 가져오기 (게시글에 파일PK 저장)
+    fileVO.getSeq(); // 81
+		board.setFileId(fileVO.getSeq()); // 
 		boardDataService.addBoardData(board); // 게시글 저장
 
 		// 등록 성공여부 확인
@@ -70,9 +74,12 @@ public class BoardDataController {
 	// }
 
 
-	@GetMapping("/boardView")
-	public void inquiryBoardData(int boardId, ModelMap model) throws Exception {
+	@GetMapping("/boardView.do")
+	public String inquiryBoardData(int boardId, ModelMap model) throws Exception {
 
-		model.addAttribute("pageInfo", boardDataService.inquiryBoardData(boardId));
+		BoardDataVO boardDataVO = boardDataService.inquiryBoardData(boardId);
+		model.addAttribute("pageInfo", boardDataVO);
+		return "board_view";
 	}
+
 }

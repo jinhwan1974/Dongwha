@@ -39,12 +39,13 @@ public class FileUtils {
             throw new RuntimeException(e);
         }
 
-        return FileVO.builder()
-                .orgName(multipartFile.getOriginalFilename())
-                .fileName(saveName)
-                .fileType(StringUtils.getFilenameExtension(saveName))
-                .fileSize(multipartFile.getSize())
-                .build();
+				FileVO fileVO = new FileVO();
+				fileVO.setFileName(saveName);
+				fileVO.setFileSize(multipartFile.getSize());
+				fileVO.setOrgName(multipartFile.getOriginalFilename());
+				fileVO.setFileType(StringUtils.getFilenameExtension(saveName));
+
+        return fileVO;
     }
 
     /**

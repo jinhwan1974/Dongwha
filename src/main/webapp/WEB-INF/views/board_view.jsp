@@ -80,11 +80,11 @@
 							<tbody>
 								<tr>
 									<th>제조사</th>
-									<td><input id="company" name="company" class="form-control form-control-sm" type="text" value='<c:out value="${pageInfo.company}">' /></td>
+									<td><input id="company" name="company" class="form-control form-control-sm" type="text" value='${pageInfo.company}' /></td>
 								</tr>
 								<tr>
 									<th>제목</th>
-									<td><input id="title" name="title" class="form-control form-control-sm" type="text" value='<c:out value="${pageInfo.title}">' /></td>
+									<td><input id="title" name="title" class="form-control form-control-sm" type="text" value='<c:out value="${pageInfo.title}"/>' /></td>
 								</tr>
 								<tr>
 									<th>작성자</th>
@@ -97,16 +97,17 @@
 									<td>
 										<div class="tbl-cnt">
 											<!--textarea class="form-control" rows="3"></textarea-->
-											<textarea id="content" name="content" class="form-control" rows="8" value='<c:out value="${pageInfo.content}">'></textarea>
+											<textarea id="content" name="content" class="form-control" rows="8" value='<c:out value="${pageInfo.title}"/>'>${pageInfo.content}</textarea>
 										</div>
 									</td>
 								</tr>
-								<!-- <tr>
+								<tr>
 									<th>첨부파일</th>
 									<td>
-										<input type="file" id="orgName" name="orgName" />
+										<P>첨부파일 : <span>${pageInfo.orgName}</span></P>
+										<input type="file" id="orgName" name="orgName"/>
 									</td>
-								</tr> -->
+								</tr>
 							</tbody>
 						</table>
 					</div>

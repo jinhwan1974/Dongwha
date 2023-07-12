@@ -71,7 +71,7 @@
 			<!-- View 테이블 -->
 			<div class="panel panel-inverse">
 				<div class="panel-body">
-					<form id="actionForm" action="/boardWrite.do" method="post">
+					<form id="actionForm" action="/boardWrite.do" method="post" enctype="multipart/form-data">
 					<div class="table-responsive">
 						<table class="tbl_ver" cellspacing="0">
 							<colgroup>
@@ -102,12 +102,12 @@
 										</div>
 									</td>
 								</tr>
-								<!-- <tr>
+								<tr>
 									<th>첨부파일</th>
 									<td>
-										<input type="file" id="orgName" name="orgName" />
+										<input type="file" id="boardFile" name="boardFile" accept=".txt, .docx"/>
 									</td>
-								</tr> -->
+								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -172,7 +172,7 @@
 				alert("파일첨부");
 				return false;
 			}
-			$('#actionForm').attr('action','addboardData.do');
+			$('#actionForm').attr('action','addBoardData.do');
 			// actionForm param 로그로 찍어보기
 			console.log($("#actionForm").serializeArray());
 			$('#actionForm').submit();
