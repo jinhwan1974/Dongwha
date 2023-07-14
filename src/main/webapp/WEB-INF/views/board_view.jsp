@@ -41,6 +41,14 @@
 </head>
 
 <body>
+	<style>
+		.form-control[readonly] {
+			border: 0;
+			background-color: #fff;
+			outline: none;
+			box-shadow: none;
+		}
+	</style>
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade show">
 		<span class="spinner"></span>
@@ -79,33 +87,35 @@
 							</colgroup>
 							<tbody>
 								<tr>
-									<th>제조사</th>
-									<td><input id="company" name="company" class="form-control form-control-sm" type="text" value='${pageInfo.company}' /></td>
+									<th>게시판번호</th>
+									<td><input id="boardId" name="boardId"  class="form-control form-control-sm" type="number" readonly value="${pageInfo.boardId}" ></td>
 								</tr>
 								<tr>
-									<th>제목</th>
-									<td><input id="title" name="title" class="form-control form-control-sm" type="text" value='<c:out value="${pageInfo.title}"/>' /></td>
+									<th>작성일</th>
+									<td><input id="regDate" name="regDate" class="form-control form-control-sm" type="text" readonly value="${pageInfo.regDate}"/></td>
+									<th>제조사</th>
+									<td><input id="company" name="company" class="form-control form-control-sm" type="text" readonly value='${pageInfo.company}' /></td>
 								</tr>
 								<tr>
 									<th>작성자</th>
-									<td><input id="regId" name="regId" class="form-control form-control-sm" type="text" value="관리자" /></td>
-									<!-- <th>작성일</th>
-									<td><input id="regDate" name="regDate" class="form-control form-control-sm" type="text" value="${repleSubmit}"/></td> -->
+									<td><input id="regId" name="regId" class="form-control form-control-sm" type="text" readonly value="관리자" /></td>
+									<th>제목</th>
+									<td><input id="title" name="title" class="form-control form-control-sm" type="text" readonly value='${pageInfo.title}' /></td>
 								</tr>
 								<tr>
 									<th>내용</th>
-									<td>
+									<td colspan="3">
 										<div class="tbl-cnt">
 											<!--textarea class="form-control" rows="3"></textarea-->
-											<textarea id="content" name="content" class="form-control" rows="8" value='<c:out value="${pageInfo.title}"/>'>${pageInfo.content}</textarea>
+											<textarea id="content" name="content" class="form-control" rows="8" readonly value='${pageInfo.content}'>${pageInfo.content}</textarea>
 										</div>
 									</td>
 								</tr>
 								<tr>
 									<th>첨부파일</th>
-									<td>
-										<P>첨부파일 : <span>${pageInfo.orgName}</span></P>
-										<input type="file" id="orgName" name="orgName"/>
+									<td colspan="3">
+										<span>첨부파일 : <span>${pageInfo.orgName}</span></span>
+										<!-- <input type="file" id="orgName" name="orgName"/> -->
 									</td>
 								</tr>
 							</tbody>
@@ -117,8 +127,11 @@
 						<button type="button" id="listBtn" class="btn btn-sm bg-theme"><i class="fa fa-list" aria-hidden="true"></i>목록</button>
 						<button type="button" id="delBtn" class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> 삭제</button>
 					</div>
-					<form id="infoForm" action="/board_View" method="get">
-						<input type="hidden" id="boardId" name="boardId" value='<c:out value="${pageInfo.boardId}"/>'>
+					<form id="delForm" action="/delBoardData.do" method="get">
+						<input type="hidden" id="boardId" name="boardId" value="${pageInfo.boardId}">
+					</form>
+					<form id="infoForm" action="/boardView.do" method="get">
+						<input type="hidden" id="boardId" name="boardId" value="${pageInfo.boardId}">
 					</form>
 				</div>
 			</div>
@@ -143,6 +156,7 @@
 	<!-- smarteditor2 -->
 	<script type="text/javascript">
 	let form = $("#infoForm");
+	let dform = $("#delForm");
 		
 		$("#listBtn").on("click", function(e){
 			form.find("#boardId").remove();
@@ -151,9 +165,15 @@
 		});
 		
 		$("#modifyBtn").on("click", function(e){
-			form.attr("action", "/board_View");
+			form.attr("action", "/boardEdit.do");
 			form.submit();
-	});	
+		});
+
+		
+		$('#delBtn').click(function() {
+			dform.attr("method", "post");
+			dform.submit();
+		});
 
 </script>
 

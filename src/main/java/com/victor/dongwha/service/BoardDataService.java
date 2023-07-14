@@ -28,4 +28,14 @@ public class BoardDataService {
 				return boardDataMapper.inquiryBoardData(boardId);
     }
 
+		/* 수정 */
+		public void editBoardData(BoardDataVO board) {
+				boardDataMapper.editBoardData(board);
+	}
+
+		/* 삭제 */
+		public int delBoardData(int boardId) throws Exception {
+			return boardDataMapper.delBoardData(boardId);
+	}
+
 }

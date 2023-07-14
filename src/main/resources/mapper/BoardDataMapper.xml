@@ -45,4 +45,23 @@
 				ON A.file_id = B.seq
 			WHERE A.seq = #{boardId}
     </select>
+    
+    <!-- 수정 -->
+    <update id="editBoardData">		
+    update DW_BOARD
+		set 
+			company = #{company}, 
+			title = #{title}, 
+			reg_id = #{regId},
+			reg_date = NOW(), 
+			content =  #{content}
+		where seq = #{boardId}
+		</update>
+
+    <!-- 삭제 -->
+    <update id="delBoardData">		
+    Delete FROM DW_BOARD WHERE seq = #{boardId}
+		</update>
+    
+    
 </mapper>
