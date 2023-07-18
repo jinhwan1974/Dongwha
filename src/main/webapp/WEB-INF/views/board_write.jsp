@@ -65,13 +65,13 @@
 		<!-- begin #content -->
 		<div id="contents" class="content">
 			<!-- begin page-header -->
-			<h1 class="page-header">자료실-등록/수정</h1>
+			<h1 class="page-header">자료실-등록</h1>
 			<!-- end page-header -->
 
 			<!-- View 테이블 -->
 			<div class="panel panel-inverse">
 				<div class="panel-body">
-					<form id="actionForm" action="/boardWrite.do" method="post" enctype="multipart/form-data">
+					<form id="writeForm" action="/boardWrite.do" method="get" enctype="multipart/form-data">
 					<div class="table-responsive">
 						<table class="tbl_ver" cellspacing="0">
 							<colgroup>
@@ -174,7 +174,8 @@
 
 		$('#listBtn').click(function () {
 			$(location).attr('href', 'boardList.do');
-		});		
+		});
+
 		$('#insertBtn').click(function () {
 			console.log($('input').val());
 			if ($('#company').val()== '') {
@@ -198,11 +199,12 @@
 				return false;
 			}
 
-			$('#actionForm').attr('action','addBoardData.do');
+			let wForm = $("#writeForm");
+				wForm.attr('action','addBoardData.do');
+				wForm.attr("method", "post");
 				// actionForm param 로그로 찍어보기
 				//console.log($("#actionForm").serializeArray());
-
-			$('#actionForm').submit();
+				wForm.submit();
 		});
 
 		

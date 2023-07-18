@@ -73,7 +73,7 @@
 		<!-- begin #content -->
 		<div id="contents" class="content">
 			<!-- begin page-header -->
-			<h1 class="page-header">자료실-등록/수정</h1>
+			<h1 class="page-header">자료실-상세정보</h1>
 			<!-- end page-header -->
 
 			<!-- View 테이블 -->

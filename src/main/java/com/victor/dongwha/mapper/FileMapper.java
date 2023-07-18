@@ -7,5 +7,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface FileMapper {
+
     void saveFile(FileVO fileVO);
+
+		public FileVO findFile(Long seq);
+
 }
+

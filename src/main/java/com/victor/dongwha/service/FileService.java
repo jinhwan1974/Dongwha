@@ -1,6 +1,7 @@
 package com.victor.dongwha.service;
 
 import com.victor.dongwha.mapper.FileMapper;
+import com.victor.dongwha.vo.BoardDataVO;
 import com.victor.dongwha.vo.FileVO;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +16,10 @@ public class FileService {
 		//파일등록
     public void saveFile(FileVO fileVO) {
         fileMapper.saveFile(fileVO);
+    }
+
+		//파일조회
+    public FileVO findFile(Long seq) {
+				return fileMapper.findFile(seq);
     }
 }

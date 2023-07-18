@@ -13,7 +13,7 @@
 		)
 		VALUES (
 			#{orgName},
-		    #{fileName},
+			#{fileName},
 			#{fileType},
 			#{fileSize}
 		)
@@ -21,4 +21,19 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+
+	/* 조회 */
+	<select id="findFile" parameterType="Long" resultType="FileVO">
+		SELECT
+			org_name, 	/* 원본파일명 */
+			file_name, 	/* 저장파일명 */
+			file_type, 	/* 파일확장자 */
+			file_size
+		FROM
+			board_files
+		WHERE
+			AND seq = #{seq}
+	</select>
+
+
 </mapper>
