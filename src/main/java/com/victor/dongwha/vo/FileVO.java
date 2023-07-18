@@ -8,6 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Builder
 public class FileVO {
     public FileVO() {
 	}
