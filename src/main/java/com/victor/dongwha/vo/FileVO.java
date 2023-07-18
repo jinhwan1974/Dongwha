@@ -10,7 +10,9 @@ import lombok.ToString;
 @ToString
 @Builder
 public class FileVO {
-    private Long seq;           // 파일 번호 (PK)
+    public FileVO() {
+	}
+		private Long seq;           // 파일 번호 (PK)
     private String orgName;     // 원본파일명
     private String fileName;    // 저장파일명
     private String fileType;    // 파일 확장자

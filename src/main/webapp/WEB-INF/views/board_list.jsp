@@ -149,13 +149,13 @@
                         <table id="data-table-default" class="table datatable table-striped table-bordered table-td-valign-middle">
                             <thead>
                                 <tr>
-                                    <th width="1%">No</th>
-                                    <th class="text-nowrap">제조사</th>
-                                    <th class="text-nowrap">제목</th>
-                                    <th class="text-nowrap">내용</th>
-                                    <!-- <th class="text-nowrap">첨부파일</th> -->
-                                    <th class="text-nowrap">담당자</th>
-                                    <th class="text-nowrap">등록일</th>
+                                    <th width="5%">No</th>
+                                    <th width="10%" class="text-nowrap">제조사</th>
+                                    <th width="20%" class="text-nowrap">제목</th>
+                                    <th width="30%">내용</th>
+                                    <th>첨부파일</th>
+                                    <th width="10%" class="text-nowrap">담당자</th>
+                                    <th width="5%" class="text-nowrap">등록일</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -164,22 +164,26 @@
 																		<td><c:out value="${list.boardId}"/></td>
 																		<td><c:out value="${list.company}"/></td>
 																		<td>
-																			<a class="move" href='/boardView?boardId=<c:out value="${list.boardId}"/>'>
+																			<!-- <a href='/boardView.do?boardId=<c:out value="${list.boardId}"/>'> -->
+																				<a href="/boardView.do?boardId=${list.boardId}">
 																				<c:out value="${list.title}"/>
 																			</a>
 																		</td>
 																		<td><c:out value="${list.content}"/></td>
-																		<!-- <td><c:out value="${list.orgName}"/></td> -->
+																		<td>
+																			<div style="width: 150px; text-overflow: ellipsis; overflow: hidden;">
+																			<c:out value="${list.orgName}"/>
+																			</div>
+																		</td>
 																		<td><c:out value="${list.regId}"/></td>
-																		<!-- <td><c:out value="${list.regDate}"/></td> -->
 																		<td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regDate}"/></td>
 																</tr>
 															</c:forEach>
                             </tbody>
                         </table>
 
-												<form id="moveForm" method="get">    
-												</form>
+												<!-- <form id="moveForm" method="get">    
+												</form> -->
 
                     </div>
                 </div>
@@ -249,15 +253,24 @@
         if(result === "addBoardData success"){
             alert("등록이 완료되었습니다.");
         }
+
+				if(result === "editBoardData success"){
+            alert("수정이 완료되었습니다.");
+        }
+
+				if(result === "delBoardData success"){
+            alert("삭제가 완료되었습니다.");
+        }
     }
 
-		let moveForm = $("#moveForm"); 
-    $(".move").on("click", function(e){
-        e.preventDefault();        
-        moveForm.append("<input type='number' name='boardId' value='"+ $(this).attr("href")+ "'>");
-        moveForm.attr("action", "/boardView");
-        moveForm.submit();
-    });
+		// let moveForm = $("#moveForm"); 
+    // $(".move").on("click", function(e){
+    //     e.preventDefault();        
+    //     moveForm.append("<input type='hidden' name='boardId' value='"+ $(this).attr("href")+ "'>");
+    //     moveForm.attr("action", "/boardView.do");
+    //     moveForm.submit();
+    // });
+		
 </script>
 
 </body>

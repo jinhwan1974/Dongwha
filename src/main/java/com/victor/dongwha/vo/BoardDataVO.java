@@ -7,8 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.web.multipart.MultipartFile;
 
-@Getter
 @Setter
+@Getter
 @ToString
 public class BoardDataVO {
 
