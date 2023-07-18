@@ -22,17 +22,16 @@
 		</selectKey>
 	</insert>
 
-	/* 조회 */
 	<select id="findFile" parameterType="Long" resultType="FileVO">
 		SELECT
-			org_name, 	/* 원본파일명 */
-			file_name, 	/* 저장파일명 */
-			file_type, 	/* 파일확장자 */
+			org_name,
+			file_name,
+			file_type,
 			file_size
 		FROM
 			board_files
 		WHERE
-			AND seq = #{seq}
+			seq = #{seq}
 	</select>
 
 
