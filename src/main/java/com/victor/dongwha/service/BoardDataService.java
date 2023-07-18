@@ -19,8 +19,23 @@ public class BoardDataService {
     }
 
 		/* 등록 */
-    public void addBoardData(BoardDataVO board) {        
-        boardDataMapper.addBoardData(board);        
+		public void addBoardData(BoardDataVO board) {
+        boardDataMapper.addBoardData(board);
     }
+
+		/* 조회 */
+		public BoardDataVO inquiryBoardData(int boardId) throws Exception {
+				return boardDataMapper.inquiryBoardData(boardId);
+    }
+
+		/* 수정 */
+		public void editBoardData(BoardDataVO board) {
+				boardDataMapper.editBoardData(board);
+	}
+
+		/* 삭제 */
+		public int delBoardData(int boardId) throws Exception {
+			return boardDataMapper.delBoardData(boardId);
+	}
 
 }

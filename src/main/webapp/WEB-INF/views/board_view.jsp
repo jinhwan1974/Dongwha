@@ -41,6 +41,14 @@
 </head>
 
 <body>
+	<style>
+		.form-control[readonly] {
+			border: 0;
+			background-color: #fff;
+			outline: none;
+			box-shadow: none;
+		}
+	</style>
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade show">
 		<span class="spinner"></span>
@@ -65,13 +73,12 @@
 		<!-- begin #content -->
 		<div id="contents" class="content">
 			<!-- begin page-header -->
-			<h1 class="page-header">자료실-등록</h1>
+			<h1 class="page-header">자료실-상세정보</h1>
 			<!-- end page-header -->
 
 			<!-- View 테이블 -->
 			<div class="panel panel-inverse">
 				<div class="panel-body">
-					<form id="writeForm" action="/boardWrite.do" method="get" enctype="multipart/form-data">
 					<div class="table-responsive">
 						<table class="tbl_ver" cellspacing="0">
 							<colgroup>
@@ -80,55 +87,52 @@
 							</colgroup>
 							<tbody>
 								<tr>
-									<tr>
-										<th>작성일</th>
-										<td><input id="regDate" name="regDate" class="form-control form-control-sm" type="date"/></td>
-										<th>제조사</th>
-										<td>
-											<select id="company" name="company" class="form-control form-control-sm" style="width: auto;">
-												<option value="삼성전자">삼성전자</option>
-												<option value="엘지전자">엘지전자</option>
-												<option value="샤오미">샤오미</option>
-											</select>
-											<!-- <input id="company" name="company" class="form-control form-control-sm" type="text" /> -->
-										</td>
-									</tr>
-									<tr>
-										<th>작성자</th>
-										<td>
-											<select id="regId" name="regId" class="form-control form-control-sm" style="width: auto;">
-												<option value="관리자">관리자</option>
-												<option value="부점장">부점장</option>
-											</select>
-											<!-- <input id="regId" name="regId" class="form-control form-control-sm" type="text" value="관리자" /> -->
-										</td>
-										<th>제목</th>
-										<td><input id="title" name="title" class="form-control form-control-sm" type="text" /></td>
+									<th>게시판번호</th>
+									<td><input id="boardId" name="boardId"  class="form-control form-control-sm" type="number" readonly value="${pageInfo.boardId}" ></td>
+								</tr>
+								<tr>
+									<th>작성일</th>
+									<td><input id="regDate" name="regDate" class="form-control form-control-sm" type="text" readonly value="${pageInfo.regDate}"/></td>
+									<th>제조사</th>
+									<td><input id="company" name="company" class="form-control form-control-sm" type="text" readonly value='${pageInfo.company}' /></td>
+								</tr>
+								<tr>
+									<th>작성자</th>
+									<td><input id="regId" name="regId" class="form-control form-control-sm" type="text" readonly value="관리자" /></td>
+									<th>제목</th>
+									<td><input id="title" name="title" class="form-control form-control-sm" type="text" readonly value='${pageInfo.title}' /></td>
 								</tr>
 								<tr>
 									<th>내용</th>
 									<td colspan="3">
 										<div class="tbl-cnt">
 											<!--textarea class="form-control" rows="3"></textarea-->
-											<textarea id="content" name="content" class="form-control" rows="8"></textarea>
+											<textarea id="content" name="content" class="form-control" rows="8" readonly value='${pageInfo.content}'>${pageInfo.content}</textarea>
 										</div>
 									</td>
 								</tr>
 								<tr>
 									<th>첨부파일</th>
 									<td colspan="3">
-										<input type="file" id="boardFile" name="boardFile" accept=".txt, .docx"/>
+										<span>첨부파일 : <span>${pageInfo.orgName}</span></span>
+										<!-- <input type="file" id="orgName" name="orgName"/> -->
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-					</form>
+
 					<div class="btn-area">
-						<button type="button" id="insertBtn" class="btn btn-sm bg-theme"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>등록</button>
+						<button type="button" id="modifyBtn" class="btn btn-sm bg-theme" href="/boardView?boardId='${pageInfo.boardId}'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>수정</button>
 						<button type="button" id="listBtn" class="btn btn-sm bg-theme"><i class="fa fa-list" aria-hidden="true"></i>목록</button>
 						<button type="button" id="delBtn" class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> 삭제</button>
 					</div>
+					<form id="delForm" action="/delBoardData.do" method="get">
+						<input type="hidden" id="boardId" name="boardId" value="${pageInfo.boardId}">
+					</form>
+					<form id="infoForm" action="/boardView.do" method="get">
+						<input type="hidden" id="boardId" name="boardId" value="${pageInfo.boardId}">
+					</form>
 				</div>
 			</div>
 			<!-- end panel -->
@@ -151,63 +155,25 @@
 
 	<!-- smarteditor2 -->
 	<script type="text/javascript">
-		// var oEditors = [];
-		// nhn.husky.EZCreator.createInIFrame({
-		// 	oAppRef: oEditors,
-		// 	elPlaceHolder: "CONTENT",
-		// 	sSkinURI: "<%=request.getContextPath()%>/assets/plugins/smarteditor2-2.10.0/SmartEditor2Skin.html",
-		// 	fCreator: "createSEditor2"
-		// });
-
-		$(document).ready(function() {
-			var date = new Date();
-			var yyyy = date.getFullYear();
-			console.log()
-			var mm = date.getMonth()+1;
-			if(mm < 10) {
-				mm = '0' + mm;
-			}
-			var dd = date.getDate() > 9 ? date.getDate() : '0' + date.getDate();
-			$("input[type=date]").val(yyyy+"-"+mm+"-"+dd); //yyyy+"-"+mm+"-"+dd
-			//$("#regDate").val('2022-01-01');
+	let form = $("#infoForm");
+	let dform = $("#delForm");
+		
+		$("#listBtn").on("click", function(e){
+			form.find("#boardId").remove();
+			form.attr("action", "/boardList.do");
+			form.submit();
 		});
-
-		$('#listBtn').click(function () {
-			$(location).attr('href', 'boardList.do');
-		});
-
-		$('#insertBtn').click(function () {
-			console.log($('input').val());
-			if ($('#company').val()== '') {
-				alert("제조사입력");
-				return false;
-			}
-			if ($('#title').val() == '') {
-				alert("제목입력");
-				return false;
-			}
-			if ($('#regId').val()  == '') {
-				alert("작성자입력");
-				return false;
-			}
-			if ($('#content').val() == '') {
-				alert("내용입력");
-				return false;
-			}
-			if ($('#boardFile').val() == '') {
-				alert("파일첨부");
-				return false;
-			}
-
-			let wForm = $("#writeForm");
-				wForm.attr('action','addBoardData.do');
-				wForm.attr("method", "post");
-				// actionForm param 로그로 찍어보기
-				//console.log($("#actionForm").serializeArray());
-				wForm.submit();
+		
+		$("#modifyBtn").on("click", function(e){
+			form.attr("action", "/boardEdit.do");
+			form.submit();
 		});
 
 		
+		$('#delBtn').click(function() {
+			dform.attr("method", "post");
+			dform.submit();
+		});
 
 </script>
 
