@@ -24,10 +24,11 @@
 
 	<select id="findFile" parameterType="Long" resultType="FileVO">
 		SELECT
-			org_name,
-			file_name,
-			file_type,
-			file_size
+			seq,
+			org_name as orgName,
+			file_name as fileName,
+			file_type as fileType,
+			file_size as fileSize
 		FROM
 			board_files
 		WHERE

@@ -1,7 +1,9 @@
 package com.victor.dongwha.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -9,9 +11,9 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class FileVO {
-    public FileVO() {
-	}
 		private Long seq;           // 파일 번호 (PK)
     private String orgName;     // 원본파일명
     private String fileName;    // 저장파일명

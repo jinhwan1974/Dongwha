@@ -36,6 +36,7 @@
 			A.seq as boardId,
 				company,
 				title,
+				file_id as fileId,
 				reg_id as regId,
 				reg_date as regDate,
 				content,

@@ -114,7 +114,7 @@
 								<tr>
 									<th>첨부파일</th>
 									<td colspan="3">
-										<span>첨부파일 : <span>${pageInfo.orgName}</span></span>
+										<span>첨부파일 : <a href="/posts/files/${pageInfo.fileId}/download">${pageInfo.orgName}</a></span>
 										<!-- <input type="file" id="orgName" name="orgName"/> -->
 									</td>
 								</tr>
